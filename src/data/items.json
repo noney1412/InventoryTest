@@ -1,0 +1,63 @@
+{
+    "testburger": {
+        "label": "Test Burger",
+        "weight": 220,
+        "degrade": 60,
+        "consume": 0.3
+    },
+    "bandage": {
+        "label": "Bandage",
+        "weight": 115
+    },
+    "black_money": {
+        "label": "Dirty Money"
+    },
+    "burger": {
+        "label": "Burger",
+        "weight": 220
+    },
+    "sprunk": {
+        "label": "Sprunk",
+        "weight": 350
+    },
+    "parachute": {
+        "label": "Parachute",
+        "weight": 8000,
+        "stack": false
+    },
+    "garbage": {
+        "label": "Garbage"
+    },
+    "paperbag": {
+        "label": "Paper Bag",
+        "weight": 1,
+        "stack": false,
+        "close": false,
+        "consume": 0
+    },
+    "identification": {
+        "label": "Identification"
+    },
+    "panties": {
+        "label": "Knickers",
+        "weight": 10,
+        "consume": 0
+    },
+    "lockpick": {
+        "label": "Lockpick",
+        "weight": 160
+    },
+    "phone": {
+        "label": "Phone",
+        "weight": 190,
+        "stack": false,
+        "consume": 0
+    },
+    "money": {
+        "label": "Money"
+    },
+    "mustard": {
+        "label": "Mustard",
+        "weight": 500
+    }
+}
