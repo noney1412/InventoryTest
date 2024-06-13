@@ -10,8 +10,8 @@ const config: Config.InitialOptions = {
   collectCoverage: true,
   collectCoverageFrom: [`${baseDir}/**/*.ts`],
   testMatch: [
-    `${baseTestDir}/**/*spec.ts`,
-    `${baseTestDir}/**/*spec.ts`,
+    `**/*spec.ts`,
+    `**/*spec.ts`,
   ],
 };
 

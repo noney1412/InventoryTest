@@ -1,43 +1,46 @@
-import type { ExInventory, Item } from "../../../typings/inventory";
+import type { Inventory, Item } from '../../../typings/inventory';
+import { merge } from 'lodash';
 
-const Inventories = new Map<string, ExInventory>();
+export const inventoryById = new Map<string, Inventory>();
 
-export const Inventory = {
-  get: (id: string | number) => {
-    if (typeof id === "number") id = id.toString();
-    return Inventories.get(id);
-  },
-  create: (
-    id: string | number,
-    label: string,
-    type: string,
-    slots: number,
-    weight: number,
-    maxWeight: number,
-    owner: string | number,
-    items: Item[]
-  ) => {
-    if (typeof id === "number") id = id.toString();
-    if (typeof owner === "number") owner = owner.toString();
-    const inventory: ExInventory = {
-      id: id,
-      label: label,
-      type: type,
-      slots: slots,
-      weight: weight,
-      maxWeight: maxWeight,
-      owner: owner,
-      items: items,
-    };
-    Inventories.set(id, inventory);
-    return Inventories.get(id);
-  },
-  delete: (id: string) => {
-    Inventories.delete(id);
-  },
-  update: (id: string, data: Partial<ExInventory>) => {
-    const inventory = Inventories.get(id);
-    if (!inventory) return;
-    Inventories.set(id, { ...inventory, ...data });
-  },
-};
+function get(id: string) {
+  return inventoryById.get(id);
+}
+
+export function createInventory(
+  id: string,
+  label: string,
+  type: string,
+  slots: number,
+  weight: number,
+  maxWeight: number,
+  owner: string,
+  items: Item[]
+): Inventory {
+  const inventory: Inventory = {
+    id: id,
+    label: label,
+    type: type,
+    slots: slots,
+    weight: weight,
+    maxWeight: maxWeight,
+    owner: owner,
+    items: items,
+  };
+
+  inventoryById.set(id, inventory);
+
+  return inventory;
+}
+
+export function deleteInventory(id: string): void {
+  inventoryById.delete(id);
+}
+
+export function updateInventory(id: string, data: Partial<Inventory>): void {
+  const inventory = inventoryById.get(id);
+
+  if (!inventory) throw new Error('Inventory not found');
+
+  inventoryById.set(id, merge({}, inventory, data));
+}

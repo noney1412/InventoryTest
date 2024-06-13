@@ -33,7 +33,7 @@ export type ExWeapon = {
 };
 
 //This type will show on for interface
-export type ItemData = {
+export type ItemData<T = any>= {
   name: string;
   label: string;
   stack: boolean;
@@ -42,7 +42,7 @@ export type ItemData = {
   count: number;
   description: string;
   close: boolean;
-  metadata: Record<string, any>;
+  metadata: Record<string, T>;
 };
 
 //This is default type of client and server items data

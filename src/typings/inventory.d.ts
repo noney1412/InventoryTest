@@ -1,11 +1,10 @@
-export type Item = {
-  slot: number;
+export type Item<T = any> = {
   name: string;
+  slot: number;
   count: number;
-  metadata?: Record<string, any>;
 };
 
-export type ExInventory = {
+export type Inventory = {
   id: string;
   label: string;
   type: string;
